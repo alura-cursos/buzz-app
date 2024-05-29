@@ -15,6 +15,8 @@ protocol NewsListDisplayLogic: AnyObject {
 class NewsListViewController: UIViewController {
 
     var interactor: NewsListBusinessLogic?
+    var router: NewsListRoutingLogic?
+    
     var displayedArticles: [NewsListModel.FetchNews.ViewModel.DisplayedArticle] = []
     
     private lazy var newsListTableView: UITableView = {
@@ -39,9 +41,11 @@ class NewsListViewController: UIViewController {
         let viewController = self
         let interactor = NewsListInteractor()
         let presenter = NewsListPresenter()
+        self.router = NewsListRouter()
         viewController.interactor = interactor
         interactor.presenter = presenter
         presenter.viewController = viewController
+        router?.viewController = viewController
     }
     
     private func fetchNews() {
@@ -75,6 +79,8 @@ extension NewsListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        let article = displayedArticles[indexPath.row]
+        router?.routeToNewsDetail(articleId: article.id)
     }
 }
 
