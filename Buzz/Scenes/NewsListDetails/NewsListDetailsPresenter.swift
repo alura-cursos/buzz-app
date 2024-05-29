@@ -8,17 +8,36 @@
 import UIKit
 
 protocol NewsListDetailsPresentationLogic {
-    func presentFetchedNewsById()
+    func presentFetchedNewsById(response: NewsListDetailsModel.FetchNewsDetails.Response)
     func presentError(error: Error)
 }
 
 class NewsListDetailsPresenter: NewsListDetailsPresentationLogic {
         
-    func presentFetchedNewsById() {
-        //
+    func presentFetchedNewsById(response: NewsListDetailsModel.FetchNewsDetails.Response) {
+        let article = response.article
+        guard let article = article else { return }
+        let displayedArticle = NewsListDetailsModel.FetchNewsDetails.ViewModel.DisplayedArticle(
+            title: article.title,
+            author: article.author,
+            description: article.description,
+            content: article.content,
+            url: article.url,
+            imageUrl: article.urlToImage,
+            publishedAt: formatDate(article.publishedAt)
+        )
+
+        let viewModel = NewsListDetailsModel.FetchNewsDetails.ViewModel(displayedArticle: displayedArticle)
     }
     
     func presentError(error: any Error) {
         //
+    }
+    
+    private func formatDate(_ date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "pt_BR")
+        formatter.dateFormat = "d 'de' MMMM 'de' yyyy, 'às' HH:mm"
+        return formatter.string(from: date)
     }
 }

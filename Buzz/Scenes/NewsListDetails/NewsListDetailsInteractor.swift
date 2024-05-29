@@ -8,7 +8,7 @@
 import UIKit
 
 protocol NewsListDetailsBusinessLogic {
-    func loadNewsFromId(articleId: Int)
+    func loadNewsFromId(request: NewsListDetailsModel.FetchNewsDetails.Request)
 }
 
 protocol NewsListDetailsDataStore {
@@ -19,19 +19,23 @@ class NewsListDetailsInteractor: NewsListDetailsBusinessLogic, NewsListDetailsDa
             
     var article: Article?
     private var worker: NewsAPIWorker
+    var presenter: NewsListDetailsPresentationLogic?
     
     init(worker: NewsAPIWorker = NewsAPIWorker(networkService: URLSessionNetworking())) {
         self.worker = worker
     }
 
-    func loadNewsFromId(articleId: Int) {
-        worker.fetchNewsById(articleID: articleId) { [weak self] result in
+    func loadNewsFromId(request: NewsListDetailsModel.FetchNewsDetails.Request) {
+        worker.fetchNewsById(articleID: request.id) { [weak self] result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let fetchedArticle):
                     self?.article = fetchedArticle
+                    let response = NewsListDetailsModel.FetchNewsDetails.Response(article: fetchedArticle)
+                    self?.presenter?.presentFetchedNewsById(response: response)
                 case .failure(let failure):
                     print(failure.localizedDescription)
+                    self?.presenter?.presentError(error: failure)
                 }
             }
         }
