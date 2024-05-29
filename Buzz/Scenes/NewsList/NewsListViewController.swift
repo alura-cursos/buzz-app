@@ -14,7 +14,7 @@ class NewsListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .red
-        interactor.loadNews()
+        interactor.loadNews(request: NewsListModel.FetchNews.Request())
     }
 
 
