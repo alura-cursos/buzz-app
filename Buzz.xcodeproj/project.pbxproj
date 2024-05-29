@@ -14,6 +14,7 @@
 		484152552C07B8FC003F62C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 484152542C07B8FC003F62C3 /* Assets.xcassets */; };
 		484152582C07B8FC003F62C3 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 484152572C07B8FC003F62C3 /* Base */; };
 		484152622C07BE79003F62C3 /* NewsListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484152612C07BE79003F62C3 /* NewsListRouter.swift */; };
+		484152652C07C100003F62C3 /* URLSessionNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484152642C07C100003F62C3 /* URLSessionNetworking.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		484152572C07B8FC003F62C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		484152592C07B8FC003F62C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		484152612C07BE79003F62C3 /* NewsListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListRouter.swift; sourceTree = "<group>"; };
+		484152642C07C100003F62C3 /* URLSessionNetworking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionNetworking.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 		4841524A2C07B8FB003F62C3 /* Buzz */ = {
 			isa = PBXGroup;
 			children = (
+				484152632C07C0F7003F62C3 /* Services */,
 				4841525F2C07BE50003F62C3 /* Scenes */,
 				4841524B2C07B8FB003F62C3 /* AppDelegate.swift */,
 				4841524D2C07B8FB003F62C3 /* SceneDelegate.swift */,
@@ -84,6 +87,14 @@
 				484152612C07BE79003F62C3 /* NewsListRouter.swift */,
 			);
 			path = NewsList;
+			sourceTree = "<group>";
+		};
+		484152632C07C0F7003F62C3 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				484152642C07C100003F62C3 /* URLSessionNetworking.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -157,6 +168,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				484152652C07C100003F62C3 /* URLSessionNetworking.swift in Sources */,
 				484152502C07B8FB003F62C3 /* NewsListViewController.swift in Sources */,
 				484152622C07BE79003F62C3 /* NewsListRouter.swift in Sources */,
 				4841524C2C07B8FB003F62C3 /* AppDelegate.swift in Sources */,
