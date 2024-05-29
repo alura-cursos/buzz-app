@@ -13,7 +13,9 @@ protocol NewsListDetailsPresentationLogic {
 }
 
 class NewsListDetailsPresenter: NewsListDetailsPresentationLogic {
-        
+    
+    weak var viewController: NewsListDetailsDisplayLogic?
+    
     func presentFetchedNewsById(response: NewsListDetailsModel.FetchNewsDetails.Response) {
         let article = response.article
         guard let article = article else { return }
@@ -28,10 +30,11 @@ class NewsListDetailsPresenter: NewsListDetailsPresentationLogic {
         )
 
         let viewModel = NewsListDetailsModel.FetchNewsDetails.ViewModel(displayedArticle: displayedArticle)
+        viewController?.displayFetchedNews(viewModel: viewModel)
     }
     
     func presentError(error: any Error) {
-        //
+        viewController?.displayError(message: error.localizedDescription)
     }
     
     private func formatDate(_ date: Date) -> String {
