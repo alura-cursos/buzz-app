@@ -15,7 +15,7 @@ protocol NewsListDataStore {
     var articles: [Article] { get set }
 }
 
-class NewsListInteractor {
+class NewsListInteractor: NewsListBusinessLogic, NewsListDataStore {
     private var worker: NewsAPIWorker
     var presenter: NewsListPresentationLogic?
 

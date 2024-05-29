@@ -14,7 +14,7 @@ protocol NewsListDisplayLogic: AnyObject {
 
 class NewsListViewController: UIViewController {
 
-    //private let interactor = NewsListInteractor()
+    var interactor: NewsListBusinessLogic?
     var displayedArticles: [NewsListModel.FetchNews.ViewModel.DisplayedArticle] = []
     
     private lazy var newsListTableView: UITableView = {
@@ -28,9 +28,23 @@ class NewsListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(named: "PrimaryColor")
-        //interactor.loadNews(request: NewsListModel.FetchNews.Request())
+        setup()
+        fetchNews()
         addSubviews()
         setupConstraints()
+    }
+    
+    private func setup() {
+        let viewController = self
+        let interactor = NewsListInteractor()
+        let presenter = NewsListPresenter()
+        viewController.interactor = interactor
+        interactor.presenter = presenter
+        presenter.viewController = viewController
+    }
+    
+    private func fetchNews() {
+        interactor?.loadNews(request: NewsListModel.FetchNews.Request())
     }
     
     private func addSubviews() {
