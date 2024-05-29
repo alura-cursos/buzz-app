@@ -19,6 +19,7 @@
 		4841526B2C07C1E2003F62C3 /* NewsAPIWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4841526A2C07C1E2003F62C3 /* NewsAPIWorker.swift */; };
 		4841526D2C07C244003F62C3 /* NewsListnteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4841526C2C07C244003F62C3 /* NewsListnteractor.swift */; };
 		4841526F2C07C3FB003F62C3 /* NewsListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4841526E2C07C3FB003F62C3 /* NewsListModel.swift */; };
+		484152712C07C50A003F62C3 /* NewsListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484152702C07C50A003F62C3 /* NewsListPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		4841526A2C07C1E2003F62C3 /* NewsAPIWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsAPIWorker.swift; sourceTree = "<group>"; };
 		4841526C2C07C244003F62C3 /* NewsListnteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListnteractor.swift; sourceTree = "<group>"; };
 		4841526E2C07C3FB003F62C3 /* NewsListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListModel.swift; sourceTree = "<group>"; };
+		484152702C07C50A003F62C3 /* NewsListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 				484152612C07BE79003F62C3 /* NewsListRouter.swift */,
 				4841526C2C07C244003F62C3 /* NewsListnteractor.swift */,
 				4841526E2C07C3FB003F62C3 /* NewsListModel.swift */,
+				484152702C07C50A003F62C3 /* NewsListPresenter.swift */,
 			);
 			path = NewsList;
 			sourceTree = "<group>";
@@ -197,6 +200,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				484152652C07C100003F62C3 /* URLSessionNetworking.swift in Sources */,
+				484152712C07C50A003F62C3 /* NewsListPresenter.swift in Sources */,
 				4841526B2C07C1E2003F62C3 /* NewsAPIWorker.swift in Sources */,
 				484152502C07B8FB003F62C3 /* NewsListViewController.swift in Sources */,
 				484152672C07C1B7003F62C3 /* Article.swift in Sources */,
