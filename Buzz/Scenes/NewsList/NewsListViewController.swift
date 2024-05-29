@@ -7,9 +7,15 @@
 
 import UIKit
 
+protocol NewsListDisplayLogic: AnyObject {
+    func displayFetchedNews(viewModel: NewsListModel.FetchNews.ViewModel)
+    func displayError(message: String)
+}
+
 class NewsListViewController: UIViewController {
 
-    private let interactor = NewsListInteractor()
+    //private let interactor = NewsListInteractor()
+    var displayedArticles: [NewsListModel.FetchNews.ViewModel.DisplayedArticle] = []
     
     private lazy var newsListTableView: UITableView = {
         let tableView = UITableView()
@@ -43,16 +49,27 @@ class NewsListViewController: UIViewController {
 
 extension NewsListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return displayedArticles.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         var content = cell.defaultContentConfiguration()
-        content.text = "Notícia"
+        content.text = displayedArticles[indexPath.row].title
         cell.contentConfiguration = content
         return cell
     }
 }
 
-
+extension NewsListViewController: NewsListDisplayLogic {
+    func displayFetchedNews(viewModel: NewsListModel.FetchNews.ViewModel) {
+        self.displayedArticles = viewModel.displayedArticles
+        newsListTableView.reloadData()
+    }
+    
+    func displayError(message: String) {
+        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        present(alert, animated: true)
+    }
+}
