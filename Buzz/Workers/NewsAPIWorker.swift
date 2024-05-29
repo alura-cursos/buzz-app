@@ -33,4 +33,19 @@ class NewsAPIWorker {
             }
         }
     }
+    
+    func fetchNewsById(articleID: Int, completion: @escaping (Result<Article, Error>) -> Void) {
+        guard let url = URL(string: NewsAPI.baseURL + NewsAPI.articles + "\(articleID)") else {
+            completion(.failure(NetworkError.invalidURL))
+            return
+        }
+        networkService.request(url: url) { (result: Result<Article, Error>) in
+            switch result {
+            case .success(let response):
+                completion(.success(response))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
 }

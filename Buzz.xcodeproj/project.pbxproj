@@ -23,6 +23,7 @@
 		484152742C07C96F003F62C3 /* NewsListArticleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484152732C07C96F003F62C3 /* NewsListArticleCell.swift */; };
 		484152772C07C984003F62C3 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 484152762C07C984003F62C3 /* Kingfisher */; };
 		4841527A2C07CCE3003F62C3 /* NewsListDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484152792C07CCE3003F62C3 /* NewsListDetailsViewController.swift */; };
+		4841527C2C07CF5C003F62C3 /* NewsListDetailsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4841527B2C07CF5C003F62C3 /* NewsListDetailsInteractor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 		484152702C07C50A003F62C3 /* NewsListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListPresenter.swift; sourceTree = "<group>"; };
 		484152732C07C96F003F62C3 /* NewsListArticleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListArticleCell.swift; sourceTree = "<group>"; };
 		484152792C07CCE3003F62C3 /* NewsListDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListDetailsViewController.swift; sourceTree = "<group>"; };
+		4841527B2C07CF5C003F62C3 /* NewsListDetailsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListDetailsInteractor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				484152792C07CCE3003F62C3 /* NewsListDetailsViewController.swift */,
+				4841527B2C07CF5C003F62C3 /* NewsListDetailsInteractor.swift */,
 			);
 			path = NewsListDetails;
 			sourceTree = "<group>";
@@ -230,6 +233,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				484152652C07C100003F62C3 /* URLSessionNetworking.swift in Sources */,
+				4841527C2C07CF5C003F62C3 /* NewsListDetailsInteractor.swift in Sources */,
 				484152712C07C50A003F62C3 /* NewsListPresenter.swift in Sources */,
 				4841526B2C07C1E2003F62C3 /* NewsAPIWorker.swift in Sources */,
 				484152502C07B8FB003F62C3 /* NewsListViewController.swift in Sources */,
